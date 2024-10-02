@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="container">
+    <main>
+        <div class="heading">
+        <h2>Feedback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        <p>Note: Fields marked with an asterisk(*) are mandatory</p>
+    </div>
+
+        <form id="feedbackForm" method="post" novalidate>
+            <label>Title*:</label>
+            <input type="radio" name="title" id="miss" value="Miss" required />Miss
+            <input type="radio" name="title" id="mr" value="Mr" required />Mr.
+            <input type="radio" name="title" id="mrs" value="Mrs" required />Mrs.
+            <br>
+            <span id="titleError" class="error"></span>
+            <br><br>
+
+            <label for="firstName">First Name*:</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+            <br>
+            <span id="firstNameError" class="error"></span>
+            <br><br>
+
+            <label for="lastName">Last Name*:</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+            <br>
+            <span id="lastNameError" class="error"></span>
+            <br><br>
+
+            <label for="emailId">Email Id*:</label>
+            <input type="email" name="emailId" id="emailId" placeholder="yourname@northeastern.edu" required />
+            <br>
+            <span id="emailError" class="error"></span>
+            <br><br>
+
+            <label for="phoneNumber">Phone Number*:</label>
+            <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" required />
+            <br>
+            <span id="phoneError" class="error"></span>
+            <br><br>
+
+            <label for="zipcode">ZipCode*:</label>
+            <input type="text" name="zipcode" id="zipcode" placeholder="xxxxx" required />
+            <br>
+            <span id="zipcodeError" class="error"></span>
+            <br><br>
+
+            <label>How did you hear*:</label>
+            <input type='checkbox' name="source" value="facebook" /> Facebook
+            <input type='checkbox' name="source" value="google" /> Google
+            <input type='checkbox' name="source" value="yelp" /> Yelp
+            <br>
+            <span id="sourceError" class="error"></span>
+            <br><br>
+
+            <label for="streetAddress1">Street Address 1*:</label>
+            <input type="text" name="streetAddress1" id="streetAddress1" placeholder="Street Address 1" required />
+            <br>
+            <span id="streetAddress1Error" class="error"></span>
+            <br><br>
+
+            <label for="streetAddress2">Street Address 2:</label>
+            <input type="text" name="streetAddress2" id="streetAddress2" placeholder="Apartment, suite, etc. (optional)">
+            <br><br>
+
+            <label for="comments">Comments*:</label>
+            <textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25" required></textarea>
+            <br>
+            <span id="commentsError" class="error"></span>
+            <br><br> 
+
+            <label for="category">Category*:</label>
+            <select id="category" name="category" required onchange="handleCategoryChange()">
+                <option value="">Select a category</option>
+                <option value="product">Product</option>
+                <option value="service">Service</option>
+                <option value="support">Support</option>
+                <option value="billing">Billing</option>
+                <option value="other">Other</option>
+            </select>
+            <br><br>
+            <span id="categoryError" class="error"></span>
+            <br>
+
+            <div id="dynamicCheckboxes"></div>
+
+            <input type="submit" id="submitBtn" value="Submit" disabled>
+            <input type="reset" value="Reset">
+        </form>
+
+        <div id="formDataTable"></div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
