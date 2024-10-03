@@ -72,7 +72,7 @@
         const isValidPhone = validateField(fields.phoneNumber, errors.phoneError, /^\d{3}\d{3}\d{4}$/, null, null, 'Please enter a valid phone number (xxx-xxx-xxxx).');
         const isValidZipcode = validateField(fields.zipcode, errors.zipcodeError, /^\d{5}$/, null, null, 'Please enter a valid zipcode.');
         const isValidSource = validateCheckbox(fields.source, errors.sourceError);
-        const isValidComments = validateField(fields.comments, errors.commentsError, null, 10, 200, 'Comments must be between 10 and 200 characters.');
+        const isValidComments = validateField(fields.comments, errors.commentsError, null, 1, 200, 'Comments must be between 1 and 200 characters.');
         const isValidStreetAddress1 = validateField(fields.streetAddress1, errors.streetAddress1Error, null, 2, 100, 'Please enter a valid street address.');
         const isValidCategory = validateField(fields.category, errors.categoryError, null, null, null, 'Please select a category.');
 
@@ -93,12 +93,11 @@
     const handleCategoryChange = () => {
         dynamicCheckboxes.innerHTML = '';  
         const selectedCategory = fields.category.value;
-
-        
         dynamicCheckboxes.innerHTML = `
-            <label>Would you like to add extra feedback*?</label>
+            <label>Would you like to feedback For ${selectedCategory}?</label>
             <input type="checkbox" id="extraFeedback" onchange="toggleExtraFeedback()"/> Yes
             <br><br>
+            <p></p>
             <div id="extraFeedbackField"></div>`;
         
 
@@ -136,5 +135,10 @@ form.addEventListener('submit', (event) => {
         table += '</table>';
         document.getElementById('formDataTable').innerHTML = table;
         form.reset();
+        const extraFeedbackField = document.getElementById('extraFeedbackField');
+        const extraFeedbackCheckbox = document.getElementById('extraFeedback');
+       
+        extraFeedbackField.innerHTML = '';  
+    
     });
 
